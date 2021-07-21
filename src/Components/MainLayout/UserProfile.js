@@ -1,13 +1,13 @@
 import React from 'react'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { StyledUser } from './Styles'
+import { StyledUserSpan } from './Styles'
 
 const UserProfile = () => {
     return (
-        <StyledUser>
+        <StyledUserSpan>
             <FontAwesomeIcon icon={faUser}/>
-        </StyledUser>
+        </StyledUserSpan>
     )
 }
 export default UserProfile

@@ -23,7 +23,7 @@ export const StyledTitle = styled.h1`
     margin-right: 1rem;
 `
 
-export const StyledSearcher = styled.form`
+export const StyledSearcherForm = styled.form`
     width: auto;
     display: inline-flex;
 `
@@ -62,7 +62,7 @@ export const SearcherButton = styled.button`
     }
 `
 
-export const StyledUser = styled.span`
+export const StyledUserSpan = styled.span`
     width: 2rem;
     height: 2rem;
     border-radius: 50%;

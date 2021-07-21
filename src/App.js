@@ -1,13 +1,7 @@
 import MainLayout from './Components/MainLayout'
-import GlobalStyles from './Global.Styled'
 
 function App() {
-    return (
-        <>
-            <MainLayout />
-            <GlobalStyles/>
-        </>
-    );
+    return <MainLayout />
 }
 
 export default App;

@@ -1,16 +1,16 @@
 import React from 'react'
-import { StyledSearcher, SearcherInput, SearcherButton } from './Styles'
+import { SearcherInput, SearcherButton, StyledSearcherForm } from './Styles'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 const Searcher = () => {
     return (
-        <StyledSearcher>
+        <StyledSearcherForm>
             <SearcherInput placeholder="Search..." type="search"/>
             <SearcherButton type="button">
                 <FontAwesomeIcon icon={faSearch}/>
             </SearcherButton>
-        </StyledSearcher>
+        </StyledSearcherForm>
     )
 }
 export default Searcher
