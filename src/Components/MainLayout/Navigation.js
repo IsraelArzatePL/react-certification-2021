@@ -3,6 +3,7 @@ import { StyledNavigation, StyledTitle } from './Styles'
 import Searcher from './Searcher'
 import UserProfile from './UserProfile'
 import { useAuth } from '../../Providers/AuthProvider'
+import UserLogged from './UserLogged'
 
 const Navigation = () => {
     const { logged } = useAuth()
@@ -11,7 +12,7 @@ const Navigation = () => {
         <StyledNavigation>
             <StyledTitle>YouTube API</StyledTitle>
             <Searcher/>
-            { logged ? 'logged' : <UserProfile/> }
+            { logged ? <UserLogged/> : <UserProfile/> }
         </StyledNavigation>
     )
 }

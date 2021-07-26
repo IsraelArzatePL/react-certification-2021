@@ -1,15 +1,17 @@
 import React from 'react'
+import { Redirect } from 'react-router-dom'
 import { useAuth } from '../../Providers/AuthProvider'
-import { LoginMainContainer, Form, Legend, InputContainer, Input, ButtonContainer, SubmitBtn } from './Styles'
+import { LoginMainContainer, Form, Legend, InputContainer, Input, ButtonContainer, SubmitBtn, BtnLoader } from './Styles'
 import { useForm } from './useForm'
 
 const Login = () => {
     const textField = useForm()
     const passwordField = useForm()
-    const { toggleLogged } = useAuth()
+    const { toggleLogged, toggleLoader, logged, loader } = useAuth()
 
     const handleLogin = e => {
         e.preventDefault()
+        toggleLoader()
         if (textField.value === 'wizeline' && passwordField.value === 'Rocks!') {
             toggleLogged()
         } else {
@@ -17,7 +19,7 @@ const Login = () => {
         }
     }
 
-    return (
+    return ( !logged ?
         <LoginMainContainer>
             <Form onSubmit={ handleLogin }>
                 <Legend>Login</Legend>
@@ -28,10 +30,10 @@ const Login = () => {
                     <Input type="password" id="passwordField" {...passwordField} placeholder="Password"/>
                 </InputContainer>
                 <ButtonContainer>
-                    <SubmitBtn type="submit">Login</SubmitBtn>
+                    <SubmitBtn type="submit">{ !loader ? 'Login' : <BtnLoader/> }</SubmitBtn>
                 </ButtonContainer>
             </Form>
-        </LoginMainContainer>
+        </LoginMainContainer> : <Redirect to="/" />
     )
 }
 export default Login

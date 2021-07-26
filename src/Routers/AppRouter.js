@@ -7,14 +7,14 @@ const AppRouter = () => {
     return (
         <Router>
             <Switch>
+                <Route path="/" exact>
+                    <CardsContainer />
+                </Route>
                 <Route path="/video">
                     <h1>Video</h1>
                 </Route>
                 <Route path="/login">
                     <Login />
-                </Route>
-                <Route path="/">
-                    <CardsContainer />
                 </Route>
             </Switch>
         </Router>

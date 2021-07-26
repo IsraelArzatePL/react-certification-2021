@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { NavLink } from 'react-router-dom'
 
 export const StyledNavigation = styled.nav`
     width: 100%;
@@ -72,4 +73,25 @@ export const StyledUserSpan = styled.span`
     margin-left: auto;
     background-color: #f5f5f5;
     color: rgba(0, 0, 0, 0.64);
+`
+
+export const StyledUserLogged = styled.div`
+    margin-left: auto;
+    width: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0 8px;
+`
+
+export const Picture = styled.picture`
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    img {
+        display: block;
+        width: 100%;
+    }
 `

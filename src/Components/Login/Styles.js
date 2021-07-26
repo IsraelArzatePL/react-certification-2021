@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 export const LoginMainContainer = styled.div`
     width: 100%;
@@ -53,4 +53,23 @@ export const SubmitBtn = styled.button`
     border: 0;
     border-radius: 4px;
     cursor: pointer;
+`
+
+const spinner = keyframes`
+    0% {
+        transform: rotate(0deg)
+    }
+    100% {
+        transform: rotate(360deg)
+    }
+`
+
+export const BtnLoader = styled.span`
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 3px solid rgba(0, 0, 0, 0.64);
+    border-left-color: #86BEDA;
+    animation: ${spinner} 1s linear infinite;
 `

@@ -6,8 +6,8 @@ import AuthProvider from '../../Providers/AuthProvider'
 const MainLayout = () => {
     return (
         <AuthProvider>
-            <Navigation/>
-            <Container/>
+            <Navigation />
+            <Container />
         </AuthProvider>
     )
 }
