@@ -1,11 +1,11 @@
 import React from 'react'
-import CardsContainer from '../Cards/CardsContainer'
 import { StyledContainer } from './Styles'
+import AppRouter from '../../Routers/AppRouter'
 
 const Container = () => {
     return (
         <StyledContainer>
-            <CardsContainer/>
+            <AppRouter/>
         </StyledContainer>
     )
 }

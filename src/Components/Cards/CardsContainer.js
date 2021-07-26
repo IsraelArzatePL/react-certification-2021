@@ -6,17 +6,6 @@ const CardsContainer = () => {
     return (
         <StyledCardsContainer>
             <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
         </StyledCardsContainer>
     )
 }
