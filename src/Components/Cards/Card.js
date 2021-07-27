@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyledCard } from './Styles'
 
-const Card = () => {
+const Card = (props) => {
     return (
         <StyledCard>
             <header></header>
