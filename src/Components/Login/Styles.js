@@ -73,3 +73,15 @@ export const BtnLoader = styled.span`
     border-left-color: #86BEDA;
     animation: ${spinner} 1s linear infinite;
 `
+export const ErrorMsg = styled.div`
+    width: 100%;
+    padding: 16px;
+    border: 1px solid #d84242;
+    border-radius: 4px;
+    font-weight: 300;
+    margin-bottom: 16px;
+    strong {
+        display: inline-block;
+        font-style: italic;
+    }
+`

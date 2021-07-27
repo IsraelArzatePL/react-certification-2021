@@ -1,5 +1,5 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import { NavLink } from 'react-router-dom'
 
 export const StyledNavigation = styled.nav`
     width: 100%;
@@ -63,7 +63,7 @@ export const SearcherButton = styled.button`
     }
 `
 
-export const StyledUserSpan = styled.span`
+export const StyledUserBtnLogin = styled(Link)`
     width: 2rem;
     height: 2rem;
     border-radius: 50%;
@@ -73,6 +73,8 @@ export const StyledUserSpan = styled.span`
     margin-left: auto;
     background-color: #f5f5f5;
     color: rgba(0, 0, 0, 0.64);
+    border: 0;
+    cursor: pointer;
 `
 
 export const StyledUserLogged = styled.div`
@@ -86,12 +88,25 @@ export const StyledUserLogged = styled.div`
 
 export const Picture = styled.picture`
     display: inline-block;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     overflow: hidden;
     img {
         display: block;
         width: 100%;
     }
+`
+
+export const UserBtnLogout = styled.button`
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #c5c5c5;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.64);
 `
