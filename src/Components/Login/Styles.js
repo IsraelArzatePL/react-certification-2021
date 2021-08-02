@@ -1,6 +1,7 @@
+import { motion } from 'framer-motion'
 import styled, { keyframes } from 'styled-components'
 
-export const LoginMainContainer = styled.div`
+export const LoginMainContainer = styled(motion.div)`
     width: 100%;
     display: flex;
     justify-content: center;
@@ -73,6 +74,7 @@ export const BtnLoader = styled.span`
     border-left-color: #86BEDA;
     animation: ${spinner} 1s linear infinite;
 `
+
 export const ErrorMsg = styled.div`
     width: 100%;
     padding: 16px;

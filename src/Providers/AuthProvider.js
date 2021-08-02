@@ -1,6 +1,5 @@
-import React, { createContext, useState } from "react"
-
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+import React, { createContext, useState, useContext } from "react"
+import { Sleeper } from '../Props/Sleeper'
 
 const AuthContext = createContext({})
 
@@ -8,9 +7,9 @@ const AuthProvider = (props) => {
     const [logged, setLogged] = useState(false)
     const [spinner, setSpinner] = useState(false)
 
-    const toggleLogged = () => sleep(2000).then(() => setLogged(!logged))
+    const toggleLogged = () => Sleeper(2000).then(() => setLogged(!logged))
     const toggleSpinner = () => setSpinner(!spinner)
-    const deactiveSpinner = () => sleep(750).then(() => setSpinner(false))
+    const deactiveSpinner = () => Sleeper(750).then(() => setSpinner(false))
 
     const authContextValue = {
         logged,
@@ -23,5 +22,5 @@ const AuthProvider = (props) => {
     return <AuthContext.Provider value={authContextValue} {...props} />
 };
 
-export const useAuth = () => React.useContext(AuthContext)
+export const useAuth = () => useContext(AuthContext)
 export default AuthProvider
