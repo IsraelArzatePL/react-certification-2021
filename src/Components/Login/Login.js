@@ -2,36 +2,33 @@ import React, { useState } from 'react'
 import { Redirect } from 'react-router-dom'
 import { useAuth } from '../../Providers/AuthProvider'
 import { LoginMainContainer, Form, Legend, InputContainer, Input, ButtonContainer, SubmitBtn, BtnLoader, ErrorMsg } from './Styles'
-import { useForm } from '../../Hooks/useForm'
+import { useForm } from 'react-hook-form'
 import { pageVariants, pageTransitions } from '../../Animations/PageTransition'
-import { Sleeper } from '../../Props/Sleeper'
 
 const Login = () => {
-    const textField = useForm()
-    const passwordField = useForm()
+    const { register, handleSubmit } = useForm()
     const { spinner, logged, toggleLogged, toggleSpinner, deactiveSpinner } = useAuth()
     const [errorMsg, setErrorMsg] = useState(false)
 
     const handleLogin = e => {
-        e.preventDefault()
         toggleSpinner()
-        if (textField.value === 'wizeline' && passwordField.value === 'Rocks!') {
+        if (e.name === 'wizeline' && e.password === 'Rocks!') {
             toggleLogged()
         } else {
             deactiveSpinner()
-            Sleeper(750).then(() => setErrorMsg(true))
+            setTimeout(() => setErrorMsg(true), 750)
         }
     }
 
     return ( !logged ?
         <LoginMainContainer exit="out" animate="in" initial="out" variants={ pageVariants } transition={ pageTransitions }>
-            <Form onSubmit={ handleLogin }>
+            <Form onSubmit={ handleSubmit(handleLogin) }>
                 <Legend>Login</Legend>
                 <InputContainer>
-                    <Input type="text" id="textField" {...textField} placeholder="wizeline"/>
+                    <Input type="text" {...register('name')} placeholder="wizeline"/>
                 </InputContainer>
                 <InputContainer>
-                    <Input type="password" id="passwordField" {...passwordField} placeholder="Rocks!"/>
+                    <Input type="password" {...register('password')} placeholder="Rocks!"/>
                 </InputContainer>
                 { errorMsg ? <ErrorMsg>Use <strong>wizeline</strong> as a user and <strong>Rocks!</strong> as password!</ErrorMsg> : null }
                 <ButtonContainer>

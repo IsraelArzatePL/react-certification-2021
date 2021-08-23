@@ -1,27 +1,22 @@
 import React from 'react'
-import { SearcherInput, SearcherButton, StyledSearcherForm } from './Styles'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
-import { useApi } from '../../Providers/ApiProvider'
-import { useForm } from '../../Hooks/useForm'
-import { Sleeper } from '../../Props/Sleeper'
+import { SearcherInput, StyledSearcherForm } from './Styles'
+import { useForm } from 'react-hook-form'
+import { useYouTube } from '../../Providers/YouTubeProvider'
 
 const Searcher = () => {
-    const { handlerQuery } = useApi()
-    const inputSearcher = useForm()
-    const handlerSubmit = e => {
-        e.preventDefault()
-        Sleeper(750).then(() => {
-            handlerQuery(inputSearcher.value)
-        })
+    const { handleQuery, handleSpinner } = useYouTube()
+    const { register, handleSubmit } = useForm()
+    const onSubmit = data => {
+        handleSpinner(true)
+        setTimeout(() => {
+            handleSpinner(false)
+            handleQuery(data.searcher)
+        }, 750)
     }
 
     return (
-        <StyledSearcherForm onSubmit={ handlerSubmit }>
-            <SearcherInput placeholder="Search..." type="search" {...inputSearcher}/>
-            <SearcherButton type="button">
-                <FontAwesomeIcon icon={faSearch}/>
-            </SearcherButton>
+        <StyledSearcherForm onSubmit={ handleSubmit(onSubmit) }>
+            <SearcherInput placeholder="Search..." type="search" {...register('searcher')}/>
         </StyledSearcherForm>
     )
 }

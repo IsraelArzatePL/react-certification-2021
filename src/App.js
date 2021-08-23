@@ -1,8 +1,4 @@
 import MainLayout from './Components/MainLayout'
-import { BrowserRouter as Router } from 'react-router-dom'
 
-function App() {
-    return <Router><MainLayout/></Router>
-}
-
+const App = () => <MainLayout/>
 export default App;

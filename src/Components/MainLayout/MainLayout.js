@@ -1,25 +1,27 @@
 import React from "react";
 import Navigation from "./Navigation";
 import AuthProvider from "../../Providers/AuthProvider";
-import ApiProvider from '../../Providers/ApiProvider'
+import YouTubeProvider from '../../Providers/YouTubeProvider'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Login from "../Login/Login";
 import { StyledContainer } from "./Styles";
-import CardsContainer from "../Cards/CardsContainer";
 import { AnimatePresence } from 'framer-motion'
 import Detail from "../Detail/Detail";
+import VideosContainer from "../Videos/VideosContainer";
+import Loader from "../Loader/Loader";
 
 const MainLayout = () => {
     return (
         <AuthProvider>
-            <ApiProvider>
+            <YouTubeProvider>
                 <Router>
+                    <Loader/>
                     <Navigation />
                     <StyledContainer>
                         <AnimatePresence exitBeforeEnter>
                             <Switch>
                                 <Route path="/" exact>
-                                    <CardsContainer />
+                                    <VideosContainer />
                                 </Route>
                                 <Route path="/detail">
                                     <Detail />
@@ -31,7 +33,7 @@ const MainLayout = () => {
                         </AnimatePresence>
                     </StyledContainer>
                 </Router>
-            </ApiProvider>
+            </YouTubeProvider>
         </AuthProvider>
     );
 };
